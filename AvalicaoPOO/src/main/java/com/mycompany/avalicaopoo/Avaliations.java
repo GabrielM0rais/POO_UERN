@@ -9,15 +9,15 @@ package com.mycompany.avalicaopoo;
  *
  * @author Gabriel Morais
  */
-public class Avalicao {
+public class Avaliations {
     private int id, nota;
-    private String name, comentario;
+    private String name, comment;
     
-    public Avalicao(int id, String name, int nota, String comentario){
+    public Avaliations(int id, String name, int nota, String comment){
         this.id = id;
         this.nota = nota;
         this.name = name;
-        this.comentario = comentario;
+        this.comment = comment;
     }
     
     public void setNota(int nota) {
@@ -28,8 +28,12 @@ public class Avalicao {
         this.name = name;
     }
     
-    public void setComentario(String comentario) {
-        this.comentario = comentario;
+    public void setComment(String comment) {
+        this.comment = comment;
+    }
+    
+    public int getId() {
+        return this.id;
     }
     
     public int getNota() {
@@ -40,5 +44,7 @@ public class Avalicao {
         return this.name;
     }
     
-    
+    public String getComment() {
+        return this.comment;
+    }
 }

@@ -5,53 +5,65 @@
  */
 package com.mycompany.avalicaopoo;
 
-import com.mycompany.avalicaopoo.Avalicao;
+import com.mycompany.avalicaopoo.Avaliations;
 
 /**
  *
  * @author Gabriel Morais
  */
-public class Opnioes {
-    private Avalicao[] arrAvalicoes;
-    private int soma, maior, menor;
+public class Opinioes {
+    private Avaliations[] arrAvalicoes;
     
-    public Opnioes(Avalicao[] arrAvalicoes) {
+    public Opinioes(Avaliations[] arrAvalicoes) {
         this.arrAvalicoes = arrAvalicoes;
     }
     
-    public void setAvalicoes(Avalicao[] arrAvalicoes) {
+    public void setAvalicoes(Avaliations[] arrAvalicoes) {
         this.arrAvalicoes = arrAvalicoes;
     }
     
-    public int mediaAvaliacoes() {
-        for (int i = 0; i < arrAvalicoes.length; i ++) {
-            this.soma+= arrAvalicoes[i].getNota();
+    public int avarageAvaliations(int id) {
+        int sum = 0, count = 0, i = 0;
+     
+        while (i < arrAvalicoes.length) {
+            if (arrAvalicoes[i].getId() == id) {
+                sum += arrAvalicoes[i].getNota();
+                count += 1;
+            } 
+            i++;
         }
         
-        return this.soma/arrAvalicoes.length;
+        return sum/count;
     }
     
-    public int maiorAvalicao() {
-        for(int i = 0; i < arrAvalicoes.length; i++) {
-            if (i == 0) {
-                this.maior = arrAvalicoes[i].getNota();
+    public int largeAvaliation(int id) {
+        int large = -1;
+        int i = 0;
+        
+         while ( i < arrAvalicoes.length) {
+            if (arrAvalicoes[i].getId() == id) {
+                if (arrAvalicoes[i].getNota() > large) {
+                    large = arrAvalicoes[i].getNota();
+                }
             }
-            if (arrAvalicoes[i].getNota() > maior) {
-                this.maior = arrAvalicoes[i].getNota();
-            }
+            i++;
         }
-        return this.maior;
+        
+        return large;
     }
     
-    public int menorAvalicao() {
-        for(int i = 0; i < arrAvalicoes.length; i++) {
-            if (i == 0) {
-                this.menor = arrAvalicoes[i].getNota();
+    public int smallerAvaliotions(int id) {
+        int smaller = 5; 
+        int i = 0;
+        
+        while ( i < arrAvalicoes.length) {
+            if (arrAvalicoes[i].getId() == id) {
+                if (arrAvalicoes[i].getNota() < smaller) {
+                    smaller = arrAvalicoes[i].getNota();
+                }
             }
-            if (arrAvalicoes[i].getNota() < maior) {
-                this.menor = arrAvalicoes[i].getNota();
-            }
+            i++;
         }
-        return this.menor;
+        return smaller;
     }
 }
